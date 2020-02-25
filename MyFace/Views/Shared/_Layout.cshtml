@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/site.css"/>
+</head>
+<div class = "flex_container">
+<body class = "body">
+<header>
+    <nav class="navbar">
+        <div class="flex_container">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MyFace</a>
+            <div class="navbar-navbar">
+                <a class="nav-item" asp-area="" asp-controller="Posts" asp-action="PostsPage">Posts</a>
+                <a class="nav-item" asp-area="" asp-controller="Users" asp-action="UsersPage">Users</a>
+            </div>
+            <article class="all_posts_container">
+                <h1>Posts</h1>
+                <a href="/posts/create">
+                    <button class="create_button" type="button" id="newPostButton">New Post</button>
+                </a>
+            <article class="modal" id = "writeNewPost">
+                <form method="post" action="/posts/create" >
+                    <label for="UserId">ID:</label><br>
+                    <input type="number" name="UserId" id="UserId"/><br/>
+                    <label for="message">Post:</label><br>
+                    <textarea name = "message" id = "message"></textarea><br/>
+                    <label for="imageUrl">Image Url:</label><br/>
+                    <input type="text" id="imageUrl" name="imageUrl" placeholder="Image Url..."/><br/>
+                    <input type="submit" value="Submit">
+                </form>
+            </article>
+            </article>
+        </div>
+    </nav>
+</header>
+<div class="container">
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+</div>
+
+<footer class="border-top footer text-muted">
+    <div class="container">
+        &copy; 2020 - MyFace - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+</footer>
+
+<script src="~/js/site.js" asp-append-version="true"></script>
+@RenderSection("Scripts", false)
+</body>
+</div>
+</html>

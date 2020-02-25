@@ -1,0 +1,27 @@
+﻿@model MyFace.Models.View.PostsViewModel
+
+@{
+    Layout = "_Layout";
+
+
+}
+
+<article class = "posts_list">
+    @{
+        foreach (var post in Model.Posts)
+            {
+                <li>
+                    <div class="post_container">
+                        <h2 class="post_title">Posted by @post.PostedBy.DisplayName on @post.PostedAt.Date.ToShortDateString()</h2>
+                        <img class="post_image" src=@post.ImageUrl alt="">
+                        <p class="text_preview">
+                            @post.Message
+                        </p>
+                        <button href="#">Go to Post</button>
+                    </div>
+                </li>
+            }
+            
+    }
+</article>
+
